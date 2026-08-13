@@ -1,8 +1,8 @@
 import requests
 
 def consultar_cotacao(nome_da_moeda: str) -> None:
-    # Vai até a API pública da CoinGecko e pergunta qual é o preço atual da moeda escolhida
-    endereco_api = f"https://api.coingecko.com/api/v3/simple/price?ids={nome_da_moeda}&vs_currencies=brl"
+    # Vai até a API pública da coinbase e pergunta qual é o preço atual da cripto escolhida
+    endereco_api = f"https://api.coinbase.com/v2/prices/{nome_da_moeda}/spot"
 
     try:
         # É como se estivéssemos abrindo uma aba no navegador e acessando o site
@@ -15,7 +15,7 @@ def consultar_cotacao(nome_da_moeda: str) -> None:
             dados_recebidos = resposta_do_servidor.json()
 
             # Busca o preço exato navegando nas chaves do dicionário
-            preco_em_reais = dados_recebidos[nome_da_moeda]['brl']
+            preco_em_reais = float(dados_recebidos['data']['amount'])
 
             # Formatando o texto para exibir  no terminal do pycharm
             print(f">> O preço atual de {nome_da_moeda.capitalize()} é de R$ {preco_em_reais:,.2f}")
@@ -30,9 +30,9 @@ def consultar_cotacao(nome_da_moeda: str) -> None:
 
 # Ao dar play, o código começa por aqui
 if __name__ == "__main__":
-    print("Monitorando as cripto moedas...\n")
+    print("Monitorando as criptos...\n")
 
     # Testes com algumas criptos
-    consultar_cotacao("bitcoin")
-    consultar_cotacao("ethereum")
-    consultar_cotacao("solana")
+    consultar_cotacao("BTC-BRL")
+    consultar_cotacao("ETH-BRL")
+    consultar_cotacao("SOL-BRL")
