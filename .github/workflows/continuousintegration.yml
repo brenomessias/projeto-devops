@@ -20,6 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: Run Discord Webhook
-        uses: Sniddl/discord-commits@v1.8
+        uses: Sniddl/discord-commits@v1.6
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
