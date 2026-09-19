@@ -17,7 +17,7 @@ def consultar_cotacao(nome_da_moeda: str) -> None:
             # Busca o preço exato navegando nas chaves do dicionário
             preco_em_reais = float(dados_recebidos['data']['amount'])
 
-            # Formatando o texto para exibir  no terminal do pycharm
+            # Formata o texto para exibir  no terminal do pycharm
             print(f">> O preço atual de {nome_da_moeda.capitalize()} é de R$ {preco_em_reais:,.2f}")
 
         else:
